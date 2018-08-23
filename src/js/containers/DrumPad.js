@@ -22,10 +22,11 @@ const styles = {
 };
 
 const play = (key) => {
-  window.onload = function () {
+  if(document.readyState === 'complete') {
+    console.log(key);
     const sound = document.getElementById(key);
     sound.play();
-  };
+  }
 };
 
 
