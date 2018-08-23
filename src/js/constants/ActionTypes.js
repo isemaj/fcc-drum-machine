@@ -1,0 +1,13 @@
+export const TURN_ON = 'TURN_ON';
+export const TURN_OFF = 'TURN_OFF';
+export const VOLUME_UP = 'VOLUME_UP';
+export const VOLUME_DOWN = 'VOLUME_DOWN';
+export const PRESS_Q = 'PRESS_Q';
+export const PRESS_W = 'PRESS_W';
+export const PRESS_E = 'PRESS_E';
+export const PRESS_A = 'PRESS_A';
+export const PRESS_S = 'PRESS_S';
+export const PRESS_D = 'PRESS_D';
+export const PRESS_Z = 'PRESS_Z';
+export const PRESS_X = 'PRESS_X';
+export const PRESS_C = 'PRESS_C';
