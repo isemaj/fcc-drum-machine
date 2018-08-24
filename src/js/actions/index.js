@@ -20,6 +20,13 @@ export const volumeDown = volume => ({
 
 export const pressQ = () => ({
   type: types.PRESS_Q,
+  payload: {
+    id: 0,
+    keyCode: 81,
+    drumType: 'drum-q',
+    keyLetter: 'Q',
+    url: 'https://s3.amazonaws.com/freecodecamp/drums/Chord_2.mp3',
+  }
 });
 
 export const pressW = () => ({
