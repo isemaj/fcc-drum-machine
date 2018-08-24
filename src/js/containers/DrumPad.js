@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
 
 import {
   pressQ,
@@ -31,11 +30,30 @@ const play = (key) => {
 
 
 class DrumPad extends Component {
+  constructor(props) {
+    super(props);
+    this.keyDown = this.keyDown.bind(this); 
+  }
+
+  componentDidMount() {
+    document.addEventListener('keydown', this.keyDown);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('keydown', this.keyDown);
+  }
+
+  keyDown(e) {
+    if(e.keyCode === 80) {
+      play()
+    }
+  }
   trigger(index, key) {
   	switch (index) {
       case 0:
         play(key);
   			return this.props.pressQ;
+        break;
   		case 1:
         play(key);
   			return this.props.pressW;
@@ -64,6 +82,7 @@ class DrumPad extends Component {
         style={styles}
         className="drum-pad"
         onClick={this.trigger(index, elem.keyLetter)}
+        // onClick={() => play(elem.keyLetter)}
       >
         {elem.keyLetter}
         <audio
