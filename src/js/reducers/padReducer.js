@@ -80,7 +80,7 @@ const padReducer = (state = currentState, action) => {
   switch (action.type) {
     case PRESS_Q:
       // return [...state, state[0]];
-      return [...state];
+      return [...state, action.payload];
     case PRESS_W:
       // return [...state, state[1]];
       return [...state];
