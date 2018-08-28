@@ -1,7 +1,7 @@
 import { TURN_ON, TURN_OFF } from '../constants/ActionTypes';
 
 const currentState = {
-  powerStatus: true,
+  powerStatus: false,
 };
 
 const powerReducer = (state = currentState, action) => {
