@@ -8,14 +8,13 @@ export const turnOff = () => ({
   type: types.TURN_OFF,
 });
 
-export const volumeUp = volume => ({
-  type: types.VOLUME_UP,
+export const adjustVolume = volume => ({
+  type: types.VOLUME_ADJUST,
   payload: volume,
 });
 
-export const volumeDown = volume => ({
-  type: types.VOLUME_DOWN,
-  payload: volume,
+export const selectKit = () => ({
+  type: types.KIT_SELECT,
 });
 
 export const pressQ = () => ({
@@ -26,7 +25,7 @@ export const pressQ = () => ({
     drumType: 'drum-q',
     keyLetter: 'Q',
     url: 'https://s3.amazonaws.com/freecodecamp/drums/Chord_2.mp3',
-  }
+  },
 });
 
 export const pressW = () => ({

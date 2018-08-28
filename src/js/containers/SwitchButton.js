@@ -5,20 +5,16 @@ import PropTypes from 'prop-types';
 
 import { turnOn, turnOff } from '../actions/index';
 
-class SwitchButton extends Component {
-  render() {
-    const switchButton = !this.props.power.powerStatus ? this.props.turnOn : this.props.turnOff;
-    const switchName = this.props.power.powerStatus ? 'Switch Off' : 'Switch On';
-    return (
-      <div>
-        <button type="submit" onClick={switchButton}>{switchName}</button>
-      </div>
-    );
-  }
-}
+const SwitchButton = props => (
+  <React.Fragment>
+    <button type="submit" onClick={!props.power.powerStatus ? props.turnOn : props.turnOff}>{props.power.powerStatus ? 'Switch Off' : 'Switch On'}</button>
+  </React.Fragment>
+);
 
 SwitchButton.propTypes = {
   turnOn: PropTypes.func.isRequired,
+  turnOff: PropTypes.func.isRequired,
+  power: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = state => ({
