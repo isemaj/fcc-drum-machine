@@ -10,14 +10,13 @@ class Kit extends Component {
   }
 
   validateCheck = () => {
-  console.log(this.checked);
-  this.props.selectKit(this.checked);
+  this.props.selectKit();
 }
 
   render() {
     return (
       <React.Fragment>
-        <input id="kit-selector" type="checkbox" onClick={this.validateCheck} />
+        <input id="kit-selector" type="checkbox" onChange={this.validateCheck} />
       </React.Fragment>
     );
   }
