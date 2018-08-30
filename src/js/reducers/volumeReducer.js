@@ -1,7 +1,7 @@
 import { VOLUME_ADJUST } from '../constants/ActionTypes';
 
 const currentState = {
-  currentVolume: 0,
+  currentVolume: 1,
 };
 
 const volumeReducer = (state = currentState, action) => {
@@ -9,7 +9,7 @@ const volumeReducer = (state = currentState, action) => {
     case VOLUME_ADJUST:
       return {
       	...state,
-      	currentVolume: state.currentVolume + action.payload,
+      	currentVolume: action.payload,
       };
     default:
       return state;
