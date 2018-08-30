@@ -4,17 +4,23 @@ import PropTypes from 'prop-types';
 
 class ScreenDisplay extends Component {
   render() {
-  	const lastStatePad = this.props.pad.length - 1;
-    return (
+  	
+  	const display = this.props.power.powerStatus ? <p>{this.props.display.displayKey}</p> : <p>Turn On the Machine</p>; 
+  	// const display = (
+  	// 	<p>test</p>
+  	// 	)
+  	return (
       <div>
-        <h1>{this.props.pad[lastStatePad].drumType}</h1>
+      	{display}
       </div>
     );
   }
 }
 
 const mapStateToProps = state => ({
-  pad: state.pad,
+  power: state.power,
+  display: state.display,
+  kit: state.kit,
 });
 
 

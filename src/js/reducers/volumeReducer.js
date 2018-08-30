@@ -1,7 +1,7 @@
 import { VOLUME_ADJUST } from '../constants/ActionTypes';
 
 const currentState = {
-  currentVolume: 0.4,
+  currentVolume: 0.4  ,
 };
 
 const volumeReducer = (state = currentState, action) => {

@@ -17,47 +17,7 @@ export const selectKit = () => ({
   type: types.KIT_SELECT,
 });
 
-export const pressQ = () => ({
-  type: types.PRESS_Q,
-  payload: {
-    id: 0,
-    keyCode: 81,
-    drumType: 'drum-q',
-    keyLetter: 'Q',
-    url: 'https://s3.amazonaws.com/freecodecamp/drums/Chord_2.mp3',
-  },
+export const displayNow = selectedKey => ({
+  type: types.DISPLAY,
+  payload: selectedKey,
 });
-
-export const pressW = () => ({
-  type: types.PRESS_W,
-});
-
-export const pressE = () => ({
-  type: types.PRESS_E,
-});
-export const pressA = () => ({
-  type: types.PRESS_A,
-});
-export const pressS = () => ({
-  type: types.PRESS_S,
-});
-export const pressD = () => ({
-  type: types.PRESS_D,
-});
-export const pressZ = () => ({
-  type: types.PRESS_Z,
-});
-export const pressX = () => ({
-  type: types.PRESS_X,
-});
-export const pressC = () => ({
-  type: types.PRESS_C,
-});
-
-// export const pressQ = key => {
-//   console.log('You press ' + key);
-//   return {
-//     type: types.PRESS_Q,
-//     payload: key
-//   }
-// }
