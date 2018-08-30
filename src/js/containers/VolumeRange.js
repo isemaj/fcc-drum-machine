@@ -17,14 +17,18 @@ class VolumeRange extends Component {
   render() {
   	return (
     <React.Fragment>
-      <input type="range" id="drum-volume" step="0.01" min="0" max="1" onChange={this.onVolumeChange} />
+      <input type="range" id="drum-volume" value={this.props.volume.currentVolume} step="0.01" min="0" max="1" onChange={this.onVolumeChange} />
     </React.Fragment>
     );
   }
 }
 
+const mapStateToProps = state => ({
+  volume: state.volume,
+});
+
 const mapDispatchToProps = dispatch => bindActionCreators({
   adjustVolume,
 }, dispatch);
 
-export default connect(null, mapDispatchToProps)(VolumeRange);
+export default connect(mapStateToProps, mapDispatchToProps)(VolumeRange);
