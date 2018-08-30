@@ -8,102 +8,48 @@ const styles = {
   border: '1px solid black',
 };
 
-// const play = (key) => {
-//   if(document.readyState === 'complete') {
-//     console.log(key);
-//     const sound = document.getElementById(key);
-//     sound.play();
-//   }
-// };
-
-
 class DrumPad extends Component {
   constructor(props) {
     super(props);
   }
 
-  // componentDidMount() {
-  //   document.addEventListener('keydown', this.keyDown);
-  // }
+  componentDidMount() {
+    document.addEventListener('keydown', this.keyPress);
+  }
 
-  // componentWillUnmount() {
-  //   document.removeEventListener('keydown', this.keyDown);
-  // }
+  componentWillUnmount() {
+    document.removeEventListener('keydown', this.keyPress);
+  }
 
-  // keyDown = (e) => {
-  //   if(e.keyCode === 80) {
-  //     play()
-  //   }
-  // }
-  // trigger(index, key) {
-  // 	switch (index) {
-  //     case 0:
-  //       play(key);
-  // 			return this.props.pressQ;
-  //       break;
-  // 		case 1:
-  //       play(key);
-  // 			return this.props.pressW;
-  // 		case 2:
-  // 			return this.props.pressE;
-  // 		case 3:
-  // 			return this.props.pressA;
-  // 		case 4:
-  // 			return this.props.pressS;
-  // 		case 5:
-  // 			return this.props.pressD;
-  // 		case 6:
-  // 			return this.props.pressZ;
-  // 		case 7:
-  // 			return this.props.pressX;
-  // 		case 8:
-  // 			return this.props.pressC;
-  // 		default:
-  // 	}
-  // }
+  keyPress = (e) => {
+    this.playNow(e.key.toUpperCase());
+  }
 
-  // onePad() {
-  //   return this.props.pad.map((elem, index) => (
-  //     <div
-  //       key={elem.id}
-  //       style={styles}
-  //       className="drum-pad"
-  //       onClick={this.trigger(index, elem.keyLetter)}
-  //       // onClick={() => play(elem.keyLetter)}
-  //     >
-  //       {elem.keyLetter}
-  //       <audio
-  //         className="clip"
-  //         id={elem.keyLetter}
-  //         src={elem.url}
-  //       />
-  //     </div>
-  //   ));
-  // }
-
-  playNow = () => {
-   const sound = this.refs.Q; 
-   sound.play(); 
+  playNow = (id) => {
+    const sound = document.getElementById(id);
+    console.log(this.props.volume.currentVolume);
+    sound.volume = this.props.volume.currentVolume;
+    sound.play();
   }
 
   render() {
-    const padSet = this.props.kit.drumKit.map((elem, index) => (
-      <div
-        key={elem.id}
-        style={styles}
-        onClick={this.playNow}
-      >
+    const padSet = this.props.power.powerStatus ?
+      this.props.kit.drumKit.map((elem, index) => (
+      <div key={elem.id} style={styles} onClick={() => this.playNow(elem.keyTrigger)}>
         {elem.keyTrigger}
-        <audio
-          className="clip"
-          ref={elem.keyTrigger}
-          src={elem.url}
-        />
+        <audio className="clip" id={elem.keyTrigger} src={elem.url} />
+      </div>
+    ))
+    :
+      this.props.kit.drumKit.map((elem, index) => (
+      <div key={elem.id} style={styles} onClick={() => this.playNow(elem.keyTrigger)}>
+        {elem.keyTrigger}
+        <audio className="clip" id={elem.keyTrigger} src='#' />
       </div>
     ));
     return (
       <div>
-        {padSet}
+        {padSet} 
       </div>
     );
   }
@@ -111,8 +57,9 @@ class DrumPad extends Component {
 
 
 const mapStateToProps = state => ({
-  pad: state.pad,
   kit: state.kit,
+  power: state.power, 
+  volume: state.volume,
 });
 
 export default connect(mapStateToProps, null)(DrumPad);
