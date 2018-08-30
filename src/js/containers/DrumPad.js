@@ -31,7 +31,7 @@ class DrumPad extends Component {
     const sound = document.getElementById(key);
     const keyIndex = this.props.kit.drumKit.findIndex(elem => elem.keyTrigger === key)
     if(keyIndex === -1) {
-      return 
+      return
     } else { 
     const keyId = this.props.kit.drumKit[keyIndex].id;
     this.props.displayNow(keyId);
