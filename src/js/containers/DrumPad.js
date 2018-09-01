@@ -5,9 +5,13 @@ import { connect } from 'react-redux';
 import { displayNow } from '../actions/index';
 
 const styles = {
-  height: 30,
-  width: 30,
-  border: '1px solid black',
+  height: 90,
+  width: 90,
+  borderRadius: 5,
+  backgroundColor: 'white',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center'
 };
 
 class DrumPad extends Component {
@@ -56,9 +60,9 @@ class DrumPad extends Component {
       </div>
     ));
     return (
-      <div>
+      <React.Fragment>
         {padSet} 
-      </div>
+      </React.Fragment>
     );
   }
 }

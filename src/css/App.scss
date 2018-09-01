@@ -1,0 +1,24 @@
+#drum-machine {
+	background-color: #240b2d;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: 1fr;
+	grid-template-areas: 
+		"left-pane center-pane right-pane";
+	width: 1000px;
+	height: 500px;
+	margin: 0 auto;
+}
+
+#pad-pane {
+	grid-area: left-pane;	
+	display: flex;
+}
+
+#volume-pane {
+	grid-area: center-pane;
+}
+
+#controls-pane {
+	grid-area: right-pane;
+}

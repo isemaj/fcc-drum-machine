@@ -1,0 +1,8 @@
+#pad-container {
+	display: grid;
+	grid-template-columns: repeat(3, 90px);
+	grid-template-rows: repeat(3, 90px);
+	grid-column-gap: 20px;
+	grid-row-gap: 20px;
+	margin: auto auto;
+}

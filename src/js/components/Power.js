@@ -2,9 +2,9 @@ import React from 'react';
 import SwitchButton from '../containers/SwitchButton';
 
 const Power = () => (
-  <div>
+  <React.Fragment>
     <SwitchButton />
-  </div>
+  </React.Fragment>
 );
 
 export default Power;
