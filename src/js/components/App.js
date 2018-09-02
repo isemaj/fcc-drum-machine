@@ -16,9 +16,9 @@ const App = () => (
       <Volume />
     </div>
     <div id="controls-pane">
-      <Power />
-      <Display />
       <KitToggle />
+      <Display />
+      <Power />
     </div>
   </div>
 );

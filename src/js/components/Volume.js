@@ -1,9 +1,10 @@
 import React from 'react';
 
 import VolumeRange from '../containers/VolumeRange';
+import '../../css/Volume.scss';
 
 const Preview = () => (
-  <div>
+  <div id="volume-container">
   	<VolumeRange />
   </div>
 );

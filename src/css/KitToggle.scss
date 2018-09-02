@@ -1,0 +1,17 @@
+#kit-container {
+	grid-area: kit;
+	display: -ms-grid;
+	display: grid;
+}
+
+.kit-selector {
+	border: none;
+	background-color: green;
+	width: 80px;
+	height: 80px;
+	-ms-grid-row-align: end;
+	    align-self: end;
+	-ms-grid-column-align: end;
+	    justify-self: end;
+	margin-right: 30px;
+}

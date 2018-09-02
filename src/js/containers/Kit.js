@@ -16,7 +16,7 @@ class Kit extends Component {
   render() {
     return (
       <React.Fragment>
-        <input id="kit-selector" type="checkbox" onChange={this.validateCheck} />
+      <button className="kit-selector" onClick={this.validateCheck}></button>
       </React.Fragment>
     );
   }

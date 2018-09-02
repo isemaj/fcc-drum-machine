@@ -7,8 +7,10 @@ import { displayNow } from '../actions/index';
 const styles = {
   height: 90,
   width: 90,
-  borderRadius: 5,
-  backgroundColor: 'white',
+  color: '#32a1ce',
+  borderRadius: 8,
+  border: '4px solid #32a1ce',
+  boxShadow: '2px 2px 13px #32a1ce',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center'

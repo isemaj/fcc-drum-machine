@@ -7,7 +7,7 @@ import { turnOn, turnOff } from '../actions/index';
 
 const SwitchButton = props => (
   <React.Fragment>
-    <button type="submit" onClick={!props.power.powerStatus ? props.turnOn : props.turnOff}>{props.power.powerStatus ? 'Switch Off' : 'Switch On'}</button>
+    <button className='switch-selector' type="submit" onClick={!props.power.powerStatus ? props.turnOn : props.turnOff}>{props.power.powerStatus ? 'Switch Off' : 'Switch On'}</button>
   </React.Fragment>
 );
 
