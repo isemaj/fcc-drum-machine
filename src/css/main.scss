@@ -1,10 +1,16 @@
+:root {
+	--dark-purple: #240b2d;
+	--shadow-box: #FF00CC;
+	--text-inactive-and-hover: #D72980;
+	--text-active: #F4A7E5;
+}
+
 *, *:before, *:after {
   box-sizing: inherit;
 }
 
 body {
 	background-color: white;
-	margin: 0;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
