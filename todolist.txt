@@ -1,0 +1,3 @@
+Component: 
+ ☐ Create new child component of Drumpad.
+     That component should accept props elem.keyTrigger and elem.id
