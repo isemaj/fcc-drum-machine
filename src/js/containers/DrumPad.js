@@ -3,6 +3,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 import { displayNow } from '../actions/index';
+import SinglePad from './SinglePad';
 
 const inactivePad = {
   height: 90,
@@ -73,11 +74,8 @@ class DrumPad extends Component {
 
   render() {
     const padSet = this.props.kit.drumKit.map((elem, index) => (
-        <div key={elem.id} style={this.state.squareStyle} className="audio-pad" onClick={() => this.playNow(elem.keyTrigger, elem.id)}>
-            {elem.keyTrigger}
-            <audio className="clip" id={elem.keyTrigger} src={this.props.power.powerStatus ? elem.url : '#'}/>
-        </div>
-      ));
+        <SinglePad key={elem.id} elemId={elem.id} source={elem.url}/>
+    ))
     return (
       <React.Fragment>
         {padSet} 
