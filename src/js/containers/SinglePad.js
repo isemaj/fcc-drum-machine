@@ -13,45 +13,7 @@ const inactivePowerOff = {
   justifyContent: 'center',
   backgroundColor: 'white',
   color: 'var(--text-power-off-inactive)',
-  boxShadow: 'inset 0px 0px 14px var(--box-inner-shadow-power-off-inactive-hover)'
-};
-
-const inactivePowerOffHover = {
-  height: 90, 
-  width: 90, 
-  borderRadius: 5,
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  backgroundColor: 'white',
-  color: 'var(--text-power-off-hover)',
-  boxShadow: 'inset 0px 0px 29px var(--box-inner-shadow-power-off-inactive-hover)'
-};
-
-const inactivePowerOn = {
-  height: 90, 
-  width: 90, 
-  borderRadius: 5,
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  backgroundColor: 'white',
-  color: 'var(--text-power-on-inactive-hover)',
-  boxShadow: 'inset 0px 0px 14px var(--box-inner-shadow-power-on-inactive-beat), 0px 0px 7px var(--box-outer-shadow-power-on)',
-  animation: 'flick 1s infinite alternate'
-};
-
-const inactivePowerOnHover = {
-  height: 90, 
-  width: 90, 
-  borderRadius: 5,
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  backgroundColor: 'white',
-  color: 'var(--text-power-on-inactive-hover)',
-  boxShadow: 'inset 0px 0px 27px var(--box-inner-shadow-power-on-inactive-hover), 0px 0px 7px var(--box-outer-shadow-power-on)',
-  animation: 'flick 1s infinite alternate'
+  boxShadow: 'inset 0px 0px 34px var(--box-inner-shadow-power-off-inactive-hover)'
 };
 
 const activeBeat = {
@@ -66,38 +28,25 @@ const activeBeat = {
   boxShadow: 'inset 0px 0px 14px var(--box-inner-shadow-power-on-inactive-beat), 0px 0px 25px var(--box-outer-shadow-power-on)'
 };
 
-
-
-
-
-
-const inactivePad = {
-  height: 90,
-  width: 90,
-  color: 'var(--text-inactive-and-hover)',
+const inactivePowerOnHover = {
+  height: 90, 
+  width: 90, 
   borderRadius: 5,
-  backgroundColor: 'white',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  animation: 'flick 1s infinite alternate'
-};
-
-const activePad = {
-  height: 90,
-  width: 90,
-  color: 'var(--text-active)',
-  borderRadius: 5,
   backgroundColor: 'white',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  boxShadow: '0px 0px 25px var(--shadow-box), inset 0px 0px 14px var(--shadow-box)',
+  color: 'var(--text-power-on-inactive-hover)',
+  boxShadow: 'inset 0px 0px 47px var(--box-inner-shadow-power-on-inactive-hover), 0px 0px 7px var(--box-outer-shadow-power-on)',
+  transition: 'box-shadow .20s linear'
 };
 
 class SinglePad extends Component {
   constructor(props) {
     super(props);
+    this.state =  {
+      currentStyle: inactivePowerOff
+    }
   }
 
   componentDidMount() {
@@ -114,25 +63,29 @@ class SinglePad extends Component {
   	}
   }
 
-  // activate = () => {
-  // 	if (this.props.power.powerStatus) {
-  // 		this.state.currentStyle == activePad ? 
-  // 			this.setState({
-  // 				currentStyle: inactivePad
-  // 			})
-  // 			:
-  // 			this.setState({
-  // 				currentStyle: activePad
-  // 			})
-  // 	}
-  // }
+  activate = () => {
+  	if (this.props.power.powerStatus) {
+  		this.state.currentStyle == inactivePowerOff ? 
+  			this.setState({
+  				currentStyle: activeBeat 
+  			})
+  			:
+  			this.setState({
+  				currentStyle: inactivePowerOff 
+  			})
+  	}
+  }
 
   hoverIn = () => {
-    this.setStyle();
+    this.setState({
+      currentStyle: inactivePowerOnHover
+    })
   }
 
   hoverOut = () => {
-    this.setStyle();
+    this.setState({
+      currentStyle: inactivePowerOff
+    })
   }
 
   playNow = () => {
@@ -145,20 +98,12 @@ class SinglePad extends Component {
   	this.props.displayNow(this.props.drumId);
   }
 
-  setStyle = (event) => {
-    if (this.props.power.powerStatus) {
-      return inactivePowerOn 
-    } else {
-      return inactivePowerOff
-    }
-  }
-
   render() {
   	const source = this.props.source;
   	const trigger =  this.props.elemKey;
   	const drumpadId = this.props.drumId;
     return (
-      <div style={this.setStyle()} onMouseEnter={this.hoverIn} onMouseLeave={this.hoverOut} onClick={() => this.playNow()}>
+      <div style={this.state.currentStyle} onMouseEnter={this.hoverIn} onMouseLeave={this.hoverOut} onClick={() => this.playNow()}>
         {trigger} 
         <audio id={trigger} src={this.props.power.powerStatus ? source : '#'} />
       </div> 
