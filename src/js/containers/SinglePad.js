@@ -4,6 +4,73 @@ import { connect } from 'react-redux';
 
 import { displayNow } from '../actions/index';
 
+const inactivePowerOff = {
+  height: 90, 
+  width: 90, 
+  borderRadius: 5,
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  backgroundColor: 'white',
+  color: 'var(--text-power-off-inactive)',
+  boxShadow: 'inset 0px 0px 14px var(--box-inner-shadow-power-off-inactive-hover)'
+};
+
+const inactivePowerOffHover = {
+  height: 90, 
+  width: 90, 
+  borderRadius: 5,
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  backgroundColor: 'white',
+  color: 'var(--text-power-off-hover)',
+  boxShadow: 'inset 0px 0px 29px var(--box-inner-shadow-power-off-inactive-hover)'
+};
+
+const inactivePowerOn = {
+  height: 90, 
+  width: 90, 
+  borderRadius: 5,
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  backgroundColor: 'white',
+  color: 'var(--text-power-on-inactive-hover)',
+  boxShadow: 'inset 0px 0px 14px var(--box-inner-shadow-power-on-inactive-beat), 0px 0px 7px var(--box-outer-shadow-power-on)',
+  animation: 'flick 1s infinite alternate'
+};
+
+const inactivePowerOnHover = {
+  height: 90, 
+  width: 90, 
+  borderRadius: 5,
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  backgroundColor: 'white',
+  color: 'var(--text-power-on-inactive-hover)',
+  boxShadow: 'inset 0px 0px 27px var(--box-inner-shadow-power-on-inactive-hover), 0px 0px 7px var(--box-outer-shadow-power-on)',
+  animation: 'flick 1s infinite alternate'
+};
+
+const activeBeat = {
+  height: 90, 
+  width: 90, 
+  borderRadius: 5,
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  backgroundColor: 'white',
+  color: 'var(--text-power-on-beat)',
+  boxShadow: 'inset 0px 0px 14px var(--box-inner-shadow-power-on-inactive-beat), 0px 0px 25px var(--box-outer-shadow-power-on)'
+};
+
+
+
+
+
+
 const inactivePad = {
   height: 90,
   width: 90,
@@ -31,14 +98,10 @@ const activePad = {
 class SinglePad extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-    	currentStyle: inactivePad 
-    }
   }
 
   componentDidMount() {
   	document.addEventListener('keydown', this.keyPress);
-  	console.log(this.props.drumId);
   }
 
   componentWillUnmount() {
@@ -51,17 +114,25 @@ class SinglePad extends Component {
   	}
   }
 
-  activate = () => {
-  	if (this.props.power.powerStatus) {
-  		this.state.currentStyle == activePad ? 
-  			this.setState({
-  				currentStyle: inactivePad
-  			})
-  			:
-  			this.setState({
-  				currentStyle: activePad
-  			})
-  	}
+  // activate = () => {
+  // 	if (this.props.power.powerStatus) {
+  // 		this.state.currentStyle == activePad ? 
+  // 			this.setState({
+  // 				currentStyle: inactivePad
+  // 			})
+  // 			:
+  // 			this.setState({
+  // 				currentStyle: activePad
+  // 			})
+  // 	}
+  // }
+
+  hoverIn = () => {
+    this.setStyle();
+  }
+
+  hoverOut = () => {
+    this.setStyle();
   }
 
   playNow = () => {
@@ -74,15 +145,23 @@ class SinglePad extends Component {
   	this.props.displayNow(this.props.drumId);
   }
 
+  setStyle = (event) => {
+    if (this.props.power.powerStatus) {
+      return inactivePowerOn 
+    } else {
+      return inactivePowerOff
+    }
+  }
+
   render() {
   	const source = this.props.source;
   	const trigger =  this.props.elemKey;
   	const drumpadId = this.props.drumId;
     return (
-      <div style={this.state.currentStyle} onClick={() => this.playNow()}>
-      	{trigger} 
+      <div style={this.setStyle()} onMouseEnter={this.hoverIn} onMouseLeave={this.hoverOut} onClick={() => this.playNow()}>
+        {trigger} 
         <audio id={trigger} src={this.props.power.powerStatus ? source : '#'} />
-      </div>
+      </div> 
     );
   }
 }
