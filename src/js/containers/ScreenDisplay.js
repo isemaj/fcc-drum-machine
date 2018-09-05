@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 class ScreenDisplay extends Component {
   render() {
   	
-  	const display = this.props.power.powerStatus ? <p>{this.props.display.displayKey}</p> : <p>Turn On the Machine</p>; 
+  	const display = this.props.power.powerStatus ? <p>{this.props.display.displayKey}</p> : <p>Turn On</p>; 
   	return (
       <div id="display-item">
       	{display}
