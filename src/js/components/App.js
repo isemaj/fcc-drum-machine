@@ -1,6 +1,6 @@
 import React from 'react';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faLightbulb } from '@fortawesome/free-solid-svg-icons';
+import { faPowerOff } from '@fortawesome/free-solid-svg-icons';
 
 import Power from './Power';
 import Pad from './Pad';
@@ -9,7 +9,7 @@ import Volume from './Volume';
 import KitToggle from './KitToggle';
 import '../../css/App.scss';
 
-library.add(faLightbulb);
+library.add(faPowerOff);
 
 const App = () => (
   <div id="drum-machine">
