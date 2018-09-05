@@ -11,8 +11,9 @@ const powerOnStyle = {
   backgroundColor: 'var(--circ-back)',
   outline: 'none',
   border: 'none',
-  width: 80,
-  height: 87,
+  width: 89,
+  height: 89,
+  padding: 0,
   borderRadius: '50%',
   justifySelf: 'start',
   marginLeft: 30,
@@ -20,14 +21,16 @@ const powerOnStyle = {
   justifyContent: 'center',
   alignItems: 'center',
   boxShadow: 'inset 0px 2px 8px var(--circ-back-shadow)',
+  cursor: 'grab',
 };
 
 const powerOffStyle = {
   backgroundColor: 'var(--circ-back)',
   outline: 'none',
   border: 'none',
-  width: 80,
-  height: 87,
+  width: 89,
+  height: 89,
+  padding: 0,
   borderRadius: '50%',
   justifySelf: 'start',
   marginLeft: 30,
@@ -35,6 +38,7 @@ const powerOffStyle = {
   justifyContent: 'center',
   alignItems: 'center',
   boxShadow: 'inset 0px 2px 8px var(--circ-back-shadow)',
+  cursor: 'grab',
 };
 
 const circOn = {

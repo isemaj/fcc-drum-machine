@@ -15,9 +15,10 @@ class VolumeRange extends Component {
   }
 
   render() {
+    console.log(document.getElementsByClassName('volume-range')[0])
   	return (
     <React.Fragment>
-      <input type="range" id="drum-volume" value={this.props.volume.currentVolume} step="0.01" min="0" max="1" onChange={this.onVolumeChange} />
+      <input className="volume-range" type="range" id="drum-volume" value={this.props.volume.currentVolume} step="0.01" min="0" max="1" onChange={this.onVolumeChange} />
     </React.Fragment>
     );
   }
