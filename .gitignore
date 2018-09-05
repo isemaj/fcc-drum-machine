@@ -2,3 +2,4 @@ node_modules/
 package-lock.json
 src/js/reducers/padReducer.js
 src/css/Preview.scss
+design/
