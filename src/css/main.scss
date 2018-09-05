@@ -1,5 +1,5 @@
 :root {
-	--dark-purple: #240b2d;
+	--dark-purple: #301C38;
 	--text-power-off-inactive: #CA4386;
 	--text-power-on-inactive-hover: #D72980;
 	--text-power-on-beat: #F4A7E5;
@@ -7,6 +7,12 @@
 	--box-inner-shadow-power-on-inactive-beat: #FF00CC;
 	--box-outer-shadow-power-on: #FF00CC;
 	--box-inner-shadow-power-on-inactive-hover: #BF0779;
+	--circ-back: #240B2D;
+	--circ-back-shadow: #180320;
+	--circ-front: #301C38;
+	--circ-front-shadow: #7A518A;
+	--circ-front-shadow-dark: #0F0113;
+	--bulb-on: #FF0492;
 }
 
 *, *:before, *:after {
