@@ -7,6 +7,7 @@ import { selectKit } from '../actions/index';
   const outerCircle = {
     border: 'none',
     backgroundColor: 'var(--circ-back)',
+    outline: 'none',
     width: 89,
     height: 89,
     alignSelf: 'end',
@@ -22,6 +23,7 @@ import { selectKit } from '../actions/index';
   const circMidOff = {
     border: 'none',
     backgroundColor: 'white',
+    outline: 'none',
     width: 73,
     height: 73,
     cursor: 'grab',
@@ -37,6 +39,7 @@ import { selectKit } from '../actions/index';
   const circMidOn = {
     border: 'none',
     backgroundColor: 'white',
+    outline: 'none',
     width: 73,
     height: 73,
     cursor: 'grab',

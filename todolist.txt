@@ -1,3 +1,3 @@
 Component: 
- ☐ Create new child component of Drumpad.
+ ✔ Create new child component of Drumpad. @done (18-09-06 09:13)
      That component should accept props elem.keyTrigger and elem.id
