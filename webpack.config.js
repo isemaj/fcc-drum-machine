@@ -10,10 +10,6 @@ module.exports = {
     path: path.resolve(__dirname, 'public'),
     filename: 'bundle.js',
   },
-  devtool: 'inline-source-map',
-  devServer: {
-    compress: true,
-  },
   module: {
     rules: [
       {
@@ -49,4 +45,16 @@ module.exports = {
       template: './src/index.pug',
     }),
   ],
+  optimization: {
+    minimize: true,
+    removeEmptyChunks: true,
+    splitChunks: {
+      chunks: 'all',
+      cacheGroups: {
+        vendors: {
+          reuseExistingChunk: true,
+        },
+      },
+    },
+  },
 };
