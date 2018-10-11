@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
-  mode: 'development',
+  mode: 'production',
   target: 'web',
   entry: './src/js/index.js',
   output: {
@@ -48,13 +48,5 @@ module.exports = {
   optimization: {
     minimize: true,
     removeEmptyChunks: true,
-    splitChunks: {
-      chunks: 'all',
-      cacheGroups: {
-        vendors: {
-          reuseExistingChunk: true,
-        },
-      },
-    },
   },
 };
