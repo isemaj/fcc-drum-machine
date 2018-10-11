@@ -1,4 +1,3 @@
-const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
@@ -8,12 +7,12 @@ module.exports = {
   target: 'web',
   entry: './src/js/index.js',
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'public'),
     filename: 'bundle.js',
   },
   devtool: 'inline-source-map',
   devServer: {
-    compress: true, 
+    compress: true,
   },
   module: {
     rules: [
@@ -43,9 +42,9 @@ module.exports = {
     ],
   },
   plugins: [
-    new CleanWebpackPlugin(['dist']),
+    new CleanWebpackPlugin(['public']),
     new HtmlWebpackPlugin({
-      title: 'Markdown Previewer',
+      title: 'Drum Machine',
       hash: true,
       template: './src/index.pug',
     }),
