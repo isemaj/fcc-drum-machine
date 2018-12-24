@@ -5,3 +5,4 @@ src/css/Preview.scss
 design/
 public/
 dist/
+.gitlab-ci.yml
