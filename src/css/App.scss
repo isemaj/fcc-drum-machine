@@ -1,0 +1,46 @@
+#drum-machine {
+	background-color: var(--dark-purple);
+	display: -ms-grid;
+	display: grid;
+	-ms-grid-columns: 1fr auto 1fr;
+	    grid-template-columns: 1fr auto 1fr;
+	-ms-grid-rows: 1fr;
+	    grid-template-rows: 1fr;
+	    grid-template-areas: 
+		"left-pane center-pane right-pane";
+	width: 1190px;
+	height: 500px;
+	margin: 0 auto;
+	border-radius: 10px;
+	box-shadow: 4px 6px 10px rgba(0,0,0,0.6);
+}
+
+#pad-pane {
+	-ms-grid-row: 1;
+	-ms-grid-column: 1;
+	grid-area: left-pane;	
+	display: flex;
+}
+
+#volume-pane {
+	-ms-grid-row: 1;
+	-ms-grid-column: 2;
+	grid-area: center-pane;
+}
+
+#controls-pane {
+	-ms-grid-row: 1;
+	-ms-grid-column: 3;
+	grid-area: right-pane;
+	display: -ms-grid;
+	display: grid;
+	-ms-grid-rows: 1fr 1fr 1fr;
+	    grid-template-rows: 1fr 1fr 1fr;
+	    grid-template-areas: 
+	"kit"
+	"display"
+	"power";
+	padding-right: 60px;
+}
+
+
