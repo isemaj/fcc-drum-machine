@@ -2,13 +2,13 @@
   "name": "fcc-markdown-previewer",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "dev": "webpack-dev-server --watch --mode development --hot",
     "build": "webpack"
   },
   "author": "James Itum",
-  "license": "MIT",
+  "license": "GPLv3",
   "devDependencies": {
     "@babel/core": "^7.1.2",
     "@babel/preset-env": "^7.1.0",
