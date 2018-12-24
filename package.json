@@ -4,8 +4,9 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "dev": "webpack-dev-server --watch --mode development --hot",
-    "build": "webpack"
+    "prestart": "webpack --watch --info-verbosity verbose &",
+    "start": "node server.js",
+    "dev": "webpack-dev-server"
   },
   "author": "James Itum",
   "license": "GPLv3",
